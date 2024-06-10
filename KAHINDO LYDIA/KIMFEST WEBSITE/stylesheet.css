@@ -1,0 +1,16 @@
+.img-container {
+    float: left; /* This makes each image float to the left */
+    width: 33.33%; /* Adjust the width as needed for the number of images */
+    padding: 5px; /* Optional: if you want space between the images */
+  }
+  
+  .img-container img {
+    display: block; /* This ensures the image behaves as a block-level element */
+    width: 100%; /* This makes the image scale to fit its container */
+    height: auto; /* This keeps the image's aspect ratio intact */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .img-container:hover img {
+    transform: scale(1.1); /* Scales the image to 110% when hovered */
+  }

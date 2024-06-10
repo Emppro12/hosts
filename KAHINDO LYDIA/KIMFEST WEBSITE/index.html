@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ladies' Salon Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Fallback background color */
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::after {
+            content: "";
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5; /* Adjust the opacity to make the background faded */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensure the background is behind other content */
+        }
+
+        .header, .footer {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+        }
+
+        .header {
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .logo {
+            float: left;
+            margin-right: 10px;
+            width: 145px;
+            height: auto;
+        }
+
+        .nav {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .nav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .content {
+            margin: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            position:relative;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 250px;
+        }
+
+        .service a {
+            display: block;
+            margin: 10px;
+        }
+
+        .service img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+
+        .service img:hover {
+            transform: scale(1.1);
+            border-color: #aaa;
+        }
+
+        .service p {
+            text-align: center;
+            margin: 5px 0 0 0;
+        }
+
+        .about-section,
+        .contact-section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Additional CSS Styles */
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <img src="logo.jpeg" alt="Salon Logo" class="logo">
+    <h1>WELCOME TO KIMFEST FASHIONS</h1>
+</div>
+<div class="nav">
+    <a href="booking.html">Bookings</a>
+    <a href="#contact">Contact</a> <!-- New Contact Link -->
+    <a href="#about">About</a>     <!-- New About Link -->
+</div>
+<div class="content">
+    <p><b>A place for Fabulous Looks and Fashions</b></p>
+    <div class="services">
+        <div class="service">
+            <a href="booking.html"><img src="image1.webp" alt="Service 1"></a>
+            <b><p>Pencil</p>
+                <p>Price: Shs. 40,000</p></b>
+        </div>
+        <div class="service">
+            <a href="booking.html"><img src="image2.jpg" alt="Service 2"></a>
+            <b><p>Notless</p>
+                <p>Price: Shs. 50,000</p></b>
+        </div>
+        <!-- Add more services here -->
+        <div class="service">
+            <a href="booking.html"><img src="image3.jpeg" alt="Service 3"></a>
+            <b><p>Braids</p>
+                <p>Price: Shs. 30,000</p></b>
+        </div>
+        <div class="service">
+            <a href="booking.html"><img src="image4.jpeg" alt="Service 4"></a>
+            <b><p>Braid02</p>
+                <p>Price: Shs. 20,000</p></b>
+        </div>
+        <div class="service">
+            <a href="booking.html"><img src="image5.jpeg" alt="Service 5"></a>
+            <b><p>Braid03</p>
+                <p>Price: Shs. 60,000</p></b>
+        </div>
+        <div class="service">
+            <a href="booking.html"><img src="image6.jpeg" alt="Service 6"></a>
+            <b><p>Braid04</p>
+                <p>Price: Shs. 45,000</p></b>
+        </div>
+    </div>
+
+    <div id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>Welcome to Kimfest Fashions, your number one destination for all things beauty and style. We're dedicated to giving you the very best of salon services, with a focus on quality, affordability, and customer satisfaction.
+
+            Founded in [year], Kimfest Fashions has come a long way from its beginnings in [starting location]. When [founder's name] first started out, their passion for providing high-quality beauty services drove them to start their own business.
+
+            We hope you enjoy our services as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.</p>
+    </div>
+
+    <div id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>Email: muishalydia@gmail.com</p>
+        <p>Phone: 0700269292</p>
+        <p>Whatsapp: 0763618259</p>
+        <p>Address: Plot 123, Kampala Road, Kampala, Uganda</p>
+    </div>
+</div>
+<div class="footer">
+    
+    <p>Copyright &copy; 2024 Ladies' Salon Website</p>
+</div>
+<script>
+    // JavaScript function to handle form submission
+    document.getElementById("bookingForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        // You can add your logic here to handle form submission, like sending data to a server
+        alert("Form submitted successfully!");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My School Website</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            max-width: 200px;
+        }
+        nav {
+            background-color: #666;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.jfif" alt="School Logo">
+
+    <h1>Welcome to the Wisdom Academy Academic Portal</h1>
+</header>
+
+<nav>
+    <a href="exam.html" id="examsLink">Exams</a>
+    <a href="#" id="testsLink">Tests</a>
+    <a href="#" id="pastPapersLink">Past Papers</a>
+
+</nav>
+
+<div class="container">
+    <div class="content" id="examsContent" style="display: none;">
+        <h2>Exams</h2>
+        <p>View upcoming exam schedules and results.</p>
+    </div>
+
+    <div class="content" id="testsContent" style="display: none;">
+        <h2>Tests</h2>
+        <p>Access information about upcoming tests and study materials.</p>
+    </div>
+
+    <div class="content" id="pastPapersContent" style="display: none;">
+        <h2>Past Papers</h2>
+        <p>Find past exam papers for practice.</p>
+    </div>
+
+</div>
+<div class="container">
+    <div class="content" id="examsContent" style="display: none;">
+        <h2>Exams</h2>
+        <p>View upcoming exam schedules and results.</p>
+        <p>Next Exam: Biology - June 15th, 2024</p>
+        <p>Results for previous exams can be viewed <a href="results.html">here</a>.</p>
+    </div>
+
+    <div class="content" id="testsContent" style="display: none;">
+        <h2>Tests</h2>
+        <p>Access information about upcoming tests and study materials.</p>
+        <p>Next Test: Math - June 20th, 2024</p>
+        <p>Study materials can be downloaded from our <a href="library.html">library</a>.</p>
+    </div>
+
+    <div class="content" id="pastPapersContent" style="display: none;">
+        <h2>Past Papers</h2>
+        <p>Find past exam papers for practice.</p>
+        <p>Past papers for all subjects are available for download:</p>
+        <ul>
+            <li><a href="biology_papers.zip">Biology Papers</a></li>
+            <li><a href="math_papers.zip">Math Papers</a></li>
+            <!-- Add more subjects as needed -->
+        </ul>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2024 My School</p>
+</footer>
+
+<script>
+    // JavaScript for toggling content
+    document.getElementById('examsLink').addEventListener('click', function() {
+        showContent('examsContent');
+    });
+
+    document.getElementById('testsLink').addEventListener('click', function() {
+        showContent('testsContent');
+    });
+
+    document.getElementById('pastPapersLink').addEventListener('click', function() {
+        showContent('pastPapersContent');
+    });
+
+    document.getElementById('applicationLink').addEventListener('click', function() {
+        showContent('applicationContent');
+    });
+
+    function showContent(contentId) {
+        // Hide all content
+        var contents = document.querySelectorAll('.content');
+        contents.forEach(function(content) {
+            content.style.display = 'none';
+        });
+
+        // Show the selected content
+        document.getElementById(contentId).style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

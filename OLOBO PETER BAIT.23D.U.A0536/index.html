@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Banking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("background.jfif");
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #007bff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .navbar h1 {
+      color: #fff;
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .container {
+      width: 500px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      margin-top: 50px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    input {
+      width: calc(100% - 22px);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .message {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Dashboard styles */
+    #dashboardForm {
+      text-align: center;
+    }
+
+    #dashboardForm h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    #dashboardForm p {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+      .container {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h1>GLOBAL ONLINE MONEY TRANSFER</h1>
+  </div>
+  <div class="container">
+    <form id="loginForm" class="form">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+      <p class="message">Not registered? <a href="#" id="signupLink">Create an account</a></p>
+    </form>
+    <form id="signupForm" class="form hidden">
+      <h2>Sign Up</h2>
+      <div class="form-group">
+        <label for="newFullName">Full Name</label>
+        <input type="text" id="newFullName" name="newFullName" required>
+      </div>
+      <div class="form-group">
+        <label for="newEmail">Email</label>
+        <input type="email" id="newEmail" name="newEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="newUsername">Username</label>
+        <input type="text" id="newUsername" name="newUsername" required>
+      </div>
+      <div class="form-group">
+        <label for="newPassword">Password</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+      </div>
+      <div class="form-group">
+        <label for="newNIN">National Identification Number (NIN)</label>
+        <input type="text" id="newNIN" name="newNIN" required>
+      </div>
+      <div class="form-group">
+        <label for="mobileMoneyNumber">Mobile Money Number</label>
+        <input type="text" id="mobileMoneyNumber" name="mobileMoneyNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="bankAccountNumber">Bank Account Number (Optional)</label>
+        <input type="text" id="bankAccountNumber" name="bankAccountNumber">
+      </div>
+      <button type="submit">Sign Up</button>
+      <p class="message">Already registered? <a href="#" id="loginLink">Sign in</a></p>
+    </form>
+    <form id="dashboardForm" class="form hidden">
+      <h2>Welcome to Dashboard</h2>
+      <div class="form-group">
+        <label for="clientName">Client Name</label>
+        <input type="text" id="clientName" name="clientName" readonly>
+      </div>
+      <div class="form-group">
+        <label for="accountAmount">Account Balance</label>
+        <input type="text" id="accountAmount" name="accountAmount" readonly>
+      </div>
+      <button id="addMoneyMobileBtn" type="button">Add Money (Mobile Money)</button>
+      <button id="addMoneyVisaBtn" type="button">Add Money (Visa Card)</button>
+      <button id="sendMoneyBtn" type="button">Send Money</button>
+      <button id="withdrawBtn" type="button">Withdraw</button>
+      <button id="payBillsBtn" type="button">Pay Bills</button>
+      <button id="logoutBtn" type="button">Logout</button>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+      const dashboardForm = document.getElementById("dashboardForm");
+      const addMoneyMobileBtn = document.getElementById("addMoneyMobileBtn");
+      const addMoneyVisaBtn = document.getElementById("addMoneyVisaBtn");
+      const sendMoneyBtn = document.getElementById("sendMoneyBtn");
+      const withdrawBtn = document.getElementById("withdrawBtn");
+      const payBillsBtn = document.getElementById("payBillsBtn");
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      let userAccounts = JSON.parse(localStorage.getItem("userAccounts")) || [];
+
+      document.getElementById("signupLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        loginForm.classList.add("hidden");
+        signupForm.classList.remove("hidden");
+        dashboardForm.classList.add("hidden");
+      });
+
+      document.getElementById("loginLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        signupForm.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        dashboardForm.classList.add("hidden");
+      });
+
+      loginForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const user = userAccounts.find(user => user.username === username && user.password === password);
+        if (user) {
+          loginForm.classList.add("hidden");
+          dashboardForm.classList.remove("hidden");
+          document.getElementById("clientName").value = user.fullname;
+          document.getElementById("accountAmount").value = `UGX ${user.balance.toFixed(2)}`;
+        } else {
+          alert("Invalid username or password");
+        }
+      });
+
+      signupForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const fullname = document.getElementById("newFullName").value;
+        const email = document.getElementById("newEmail").value;
+        const username = document.getElementById("newUsername").value;
+        const password = document.getElementById("newPassword").value;
+        const nin = document.getElementById("newNIN").value;
+        const mobileMoneyNumber = document.getElementById("mobileMoneyNumber").value;
+        const bankAccountNumber = document.getElementById("bankAccountNumber").value;
+        const newUser = { fullname, email, username, password, nin, mobileMoneyNumber, bankAccountNumber, balance: 1000.00 };
+        userAccounts.push(newUser);
+        localStorage.setItem("userAccounts", JSON.stringify(userAccounts));
+        signupForm.classList.add("hidden");
+        loginForm.classList.remove("hidden");
+        dashboardForm.classList.add("hidden");
+      });
+
+      addMoneyMobileBtn.addEventListener("click", function() {
+        const amount = prompt("Enter the amount to add (UGX):");
+        if (amount) {
+          const parsedAmount = parseFloat(amount);
+          const currentBalance = parseFloat(document.getElementById("accountAmount").value.replace("UGX ", ""));
+          const newBalance = currentBalance + parsedAmount;
+          document.getElementById("accountAmount").value = `UGX ${newBalance.toFixed(2)}`;
+        }
+      });
+
+      addMoneyVisaBtn.addEventListener("click", function() {
+        const visaCardNumber = prompt("Enter your Visa card number:");
+        if (visaCardNumber) {
+          // Implement add money via Visa card functionality here
+        }
+      });
+
+      sendMoneyBtn.addEventListener("click", function() {
+        const recipientType = prompt("Send money to:\n1. Mobile Money\n2. Bank Account");
+        if (recipientType === "1") {
+          const recipientMobileMoneyNumber = prompt("Enter recipient's mobile money number:");
+          if (recipientMobileMoneyNumber) {
+            // Implement send money to mobile money functionality here
+          }
+        } else if (recipientType === "2") {
+          const recipientBankAccountNumber = prompt("Enter recipient's bank account number:");
+          if (recipientBankAccountNumber) {
+            // Implement send money to bank account functionality here
+          }
+        }
+      });
+
+      withdrawBtn.addEventListener("click", function() {
+        // Implement withdraw functionality here
+      });
+
+      payBillsBtn.addEventListener("click", function() {
+        // Implement pay bills functionality here
+      });
+
+      logoutBtn.addEventListener("click", function() {
+        window.location.reload();
+      });
+    });
+  </script>
+</body>
+</html>

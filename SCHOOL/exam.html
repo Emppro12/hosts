@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WISDOM ACADEMY EXAMS</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.question {
+    margin-bottom: 20px;
+    display: none;
+}
+
+.options {
+    margin-left: 20px;
+}
+</style>
+</head>
+<body>
+
+<h1>Examination</h1>
+<a href = "SCHOOL.html">Go Back to home</a>
+<a href = "test.html">Do some Tests</a>
+<a href = "past.html">Past Papers</a>
+
+<div class="navbar">
+  <a href="javascript:void(0)" onclick="displayQuestions('primary1')">Primary 1</a>
+  <a href="javascript:void(0)" onclick="displayQuestions('primary2')">Primary 2</a>
+  <a href="javascript:void(0)" onclick="displayQuestions('primary3')">Primary 3</a>
+  <a href="javascript:void(0)" onclick="displayQuestions('primary4')">Primary 4</a>
+  <a href="javascript:void(0)" onclick="displayQuestions('primary5')">Primary 5</a>
+  <a href="javascript:void(0)" onclick="displayQuestions('primary6')">Primary 6</a>
+</div>
+
+<!-- Primary 1 -->
+<div id="primary1" class="question">
+    <h2>Primary 1</h2>
+    <p>Mathematics:</p>
+    <p><b>What is the value of 2 + 3?</b></p>
+    <div class="options">
+        <input type="radio" name="p1q1" value="A"> A) 4<br>
+        <input type="radio" name="p1q1" value="B"> B) 5<br>
+        <input type="radio" name="p1q1" value="C"> C) 6<br>
+        <input type="radio" name="p1q1" value="D"> D) 7<br>
+    </div>
+
+    <p>English:</p>
+    <p><b>What is the plural form of 'cat'?</b></p>
+    <div class="options">
+        <input type="radio" name="p1q2" value="A"> A) cats<br>
+        <input type="radio" name="p1q2" value="B"> B) caties<br>
+        <input type="radio" name="p1q2" value="C"> C) cates<br>
+        <input type="radio" name="p1q2" value="D"> D) catss<br>
+    </div>
+
+    <button onclick="calculateMarks('primary1')">Submit</button>
+    <p id="marks_primary1"></p>
+</div>
+
+<!-- Primary 2 -->
+<div id="primary2" class="question">
+    <h2>Primary 2</h2>
+    <p>Mathematics:</p>
+    <p><b>What is 5 - 2?</b></p>
+    <div class="options">
+        <input type="radio" name="p2q1" value="A"> A) 1<br>
+        <input type="radio" name="p2q1" value="B"> B) 2<br>
+        <input type="radio" name="p2q1" value="C"> C) 3<br>
+        <input type="radio" name="p2q1" value="D"> D) 4<br>
+    </div>
+
+    <p>Science:</p>
+    <p><b>What is the color of the sky during the day?</b></p>
+    <div class="options">
+        <input type="radio" name="p2q2" value="A"> A) Red<br>
+        <input type="radio" name="p2q2" value="B"> B) Blue<br>
+        <input type="radio" name="p2q2" value="C"> C) Green<br>
+        <input type="radio" name="p2q2" value="D"> D) Yellow<br>
+    </div>
+
+    <button onclick="calculateMarks('primary2')">Submit</button>
+    <p id="marks_primary2"></p>
+</div>
+
+<!-- Primary 3 -->
+<div id="primary3" class="question">
+    <h2>Primary 3</h2>
+    <p>Social Studies:</p>
+    <p><b>What is the capital city of Uganda?</b></p>
+    <div class="options">
+        <input type="radio" name="p3q1" value="A"> A) Nairobi<br>
+        <input type="radio" name="p3q1" value="B"> B) Kampala<br>
+        <input type="radio" name="p3q1" value="C"> C) Kigali<br>
+        <input type="radio" name="p3q1" value="D"> D) Accra<br>
+    </div>
+
+    <p>General Knowledge:</p>
+    <p><b>Who is the President of Uganda?</b></p>
+    <div class="options">
+        <input type="radio" name="p3q2" value="A"> A) Yoweri Museveni<br>
+        <input type="radio" name="p3q2" value="B"> B) Paul Kagame<br>
+        <input type="radio" name="p3q2" value="C"> C) Uhuru Kenyatta<br>
+        <input type="radio" name="p3q2" value="D"> D) Cyril Ramaphosa<br>
+    </div>
+
+    <button onclick="calculateMarks('primary3')">Submit</button>
+    <p id="marks_primary3"></p>
+</div>
+
+<!-- Primary 4 -->
+<div id="primary4" class="question">
+    <h2>Primary 4</h2>
+    <p>Mathematics:</p>
+    <p><b>What is the product of 4 and 3?</b></p>
+    <div class="options">
+        <input type="radio" name="p4q1" value="A"> A) 6<br>
+        <input type="radio" name="p4q1" value="B"> B) 7<br>
+        <input type="radio" name="p4q1" value="C"> C) 10<br>
+        <input type="radio" name="p4q1" value="D"> D) 12<br>
+    </div>
+
+    <p>English:</p>
+    <p><b>Which word is a verb: 'run' or 'cat'?</b></p>
+    <div class="options">
+        <input type="radio" name="p4q2" value="A"> A) run<br>
+        <input type="radio" name="p4q2" value="B"> B) cat<br>
+        <input type="radio" name="p4q2" value="C"> C) both<br>
+        <input type="radio" name="p4q2" value="D"> D) neither<br>
+    </div>
+
+    <button onclick="calculateMarks('primary4')">Submit</button>
+    <p id="marks_primary4"></p>
+</div>
+
+<!-- Primary 5 -->
+<div id="primary5" class="question">
+    <h2>Primary 5</h2>
+    <p><b>Science:</b></p>
+    <p>What is the chemical symbol for water?</p>
+    <div class="options">
+        <input type="radio" name="p5q1" value="A"> A) W<br>
+        <input type="radio" name="p5q1" value="B"> B) WT<br>
+        <input type="radio" name="p5q1" value="C"> C) H2O<br>
+        <input type="radio" name="p5q1" value="D"> D) HO2<br>
+    </div>
+
+    <p><b>Social Studies:</b></p>
+    <p>What is the longest river in Africa?</p>
+    <div class="options">
+        <input type="radio" name="p5q2" value="A"> A) Nile<br>
+        <input type="radio" name="p5q2" value="B"> B) Congo<br>
+        <input type="radio" name="p5q2" value="C"> C) Zambezi<br>
+        <input type="radio" name="p5q2" value="D"> D) Niger<br>
+    </div>
+
+    <button onclick="calculateMarks('primary5')">Submit</button>
+    <p id="marks_primary5"></p>
+</div>
+
+<!-- Primary 6 -->
+<div id="primary6" class="question">
+    <h2>Primary 6</h2>
+    <p><b>Mathematics:</b></p>
+    <p>What is the value of π (pi)?</p>
+    <div class="options">
+        <input type="radio" name="p6q1" value="A"> A) 3.14<br>
+        <input type="radio" name="p6q1" value="B"> B) 3.1416<br>
+        <input type="radio" name="p6q1" value="C"> C) 3.142<br>
+        <input type="radio" name="p6q1" value="D"> D) 3.14159<br>
+    </div>
+
+    <p><b>General Knowledge:</b></p>
+    <p>Who invented the telephone?</p>
+    <div class="options">
+        <input type="radio" name="p6q2" value="A"> A) Thomas Edison<br>
+        <input type="radio" name="p6q2" value="B"> B) Alexander Graham Bell<br>
+        <input type="radio" name="p6q2" value="C"> C) Nikola Tesla<br>
+        <input type="radio" name="p6q2" value="D"> D) Guglielmo Marconi<br>
+    </div>
+
+    <button onclick="calculateMarks('primary6')">Submit</button>
+    <p id="marks_primary6"></p>
+</div>
+
+<script>
+function displayQuestions(className) {
+    // Hide all questions
+    var questions = document.getElementsByClassName("question");
+    for (var i = 0; i < questions.length; i++) {
+        questions[i].style.display = "none";
+    }
+    
+    // Show questions for the selected class
+    document.getElementById(className).style.display = "block";
+}
+
+function calculateMarks(className) {
+    let marks = 0;
+
+    // Calculate marks based on the class
+    if (className === 'primary1') {
+        if (document.querySelector('input[name="p1q1"]:checked').value === "B") {
+            marks++;
+        }
+        if (document.querySelector('input[name="p1q2"]:checked').value === "A") {
+            marks++;
+        }
+        document.getElementById("marks_primary1").innerHTML = "Marks Obtained: " + marks;
+    } else if (className === 'primary2') {
+        if (document.querySelector('input[name="p2q1"]:checked').value === "C") {
+            marks++;
+        }
+        if (document.querySelector('input[name="p2q2"]:checked').value === "B") {
+            marks++;
+        }
+        document.getElementById("marks_primary2").innerHTML = "Marks Obtained: " + marks;
+    } else if (className === 'primary3') {
+        if (document.querySelector('input[name="p3q1"]:checked').value === "B") {
+            marks++;
+        }
+        if (document.querySelector('input[name="p3q2"]:checked').value === "A") {
+            marks++;
+        }
+        document.getElementById("marks_primary3").innerHTML = "Marks Obtained: " + marks;
+    } else if (className === 'primary4') {
+        if (document.querySelector('input[name="p4q1"]:checked').value === "D") {
+            marks++;
+        }
+        if (document.querySelector('input[name="p4q2"]:checked').value === "A") {
+            marks++;
+        }
+        document.getElementById("marks_primary4").innerHTML = "Marks Obtained: " + marks;
+    } else if (className === 'primary5') {
+        if (document.querySelector('input[name="p5q1"]:checked').value === "C") {
+            marks++;
+        }
+        if (document.querySelector('input[name="p5q2"]:checked').value === "A") {
+            marks++;
+        }
+        document.getElementById("marks_primary5").innerHTML = "Marks Obtained: " + marks;
+    } else if (className === 'primary6') {
+        if (document.querySelector('input[name="p6q1"]:checked').value === "B") {
+            marks++;
+        }
+        if (document.querySelector('input[name="p6q2"]:checked').value === "B") {
+            marks++;
+        }
+        document.getElementById("marks_primary6").innerHTML = "Marks Obtained: " + marks;
+    }
+}
+</script>
+
+</body>
+</html>

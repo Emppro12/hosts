@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Website</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url("background.jfif") no-repeat center center fixed; 
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.5); 
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7); /* Lighter background for content */
+            border-radius: 20px;
+            border-top-left-radius: 0;
+            border-bottom-right-radius: 0;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #007bff;
+            color: #fff;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .image-container div {
+            width: 45%; /* Adjusted width for smaller images */
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px; /* Add curved edges to the border */
+        }
+
+        .image-container div img {
+            width: 100%; /* Ensure images fill their containers */
+            height: auto;
+            border-radius: 20px; /* Add curved edges to the border */
+        }
+
+        .image-container div p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: #fff;
+            padding: 10px;
+            margin: 0;
+            animation: moveText 4s linear infinite; /* Add motion to the description */
+        }
+
+        @keyframes moveText {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 100%;
+            }
+
+            .image-container div {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img class="logo" src="logo.jfif" alt="Tourism Logo">
+            <h1>Welcome to Powers Travels</h1>
+            <h4><i><b>A HOME OF ALL PLEASANTLY UNEXPECTED ENJOYABLE AFRICAN TOURS</b></i></h4>
+        </div>
+        <div class="navbar">
+            <a href="#home">Home</a>
+            <a href="booking.html">Booking</a>
+            <a href="contact.html">Contact</a>
+            <a href="places.html">Places</a>
+        </div>
+        <div class="image-container">
+            <div>
+                <img src="HOT.jfif" alt="Image 1">
+                <p>Explore more about hotels</p>
+            </div>
+            <div>
+                <img src="MUSEUM.jfif" alt="Image 2">
+                <p>Explore more about museums</p>
+            </div>
+            <div>
+                <img src="RWENZORI.jfif" alt="Image 3">
+                <p>Explore more about mountains</p>
+            </div>
+            <div>
+                <img src="KASE.jfif" alt="Image 4">
+                <p>Explore more about Kasubi Tombs</p>
+            </div>
+            <div>
+                <img src="bujagali-falls.jpg" alt="Image 5">
+                <p>Explore more about Bujagali Falls</p>
+            </div>
+            <div>
+                <img src="TOMB.jpg" alt="Image 6">
+                <p>Explore more about tombs</p>
+            </div>
+        </div>
+        <p><a href="places.html">Explore More</a></p>
+    </div>
+
+    <div class="footer">
+        <p>Connect with us:</p>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <p>Contact us: powerstravels@gmail.com</p>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
